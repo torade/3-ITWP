@@ -57,6 +57,21 @@ const initializeCode = async () => {
             row.appendChild(popCell);
             row.appendChild(empCell);
             
+            
+            // create final column for employment rate
+            const employmentRateCell = document.createElement("td");
+            const employmentRate = (employmentValues[index] / values[index] * 100).toFixed(2);
+            employmentRateCell.textContent = `${employmentRate}%`;
+            row.appendChild(employmentRateCell);
+
+            //handle colors
+            if (employmentRate > 45) {
+                row.style.backgroundColor = "#abffbd";
+            }
+            else if (employmentRate <25) {
+                row.style.backgroundColor = "#ff9e9e";
+            }
+
             // Add row to table body
             tbody.appendChild(row);
         });
