@@ -30,6 +30,9 @@ const initializeCode = async () => {
         const values = populationData.value;
         const municipalities = populationData.dimension.Alue.category.label;
 
+        // Get the employment data
+        const employmentValues = employmentData.value;
+
         // Clear any existing rows
         tbody.innerHTML = '';
 
@@ -44,10 +47,15 @@ const initializeCode = async () => {
             // Create and populate population cell
             const popCell = document.createElement("td");
             popCell.textContent = values[index];
+
+            // Create and populate employment cell
+            const empCell = document.createElement("td");
+            empCell.textContent = employmentValues[index]
             
             // Add cells to row
             row.appendChild(nameCell);
             row.appendChild(popCell);
+            row.appendChild(empCell);
             
             // Add row to table body
             tbody.appendChild(row);
